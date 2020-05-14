@@ -12,8 +12,6 @@
               <br/>
               Registered as a
               non-profit society in 2010.
-              <br />
-              Although, we've been active before that.
             </span>
           </v-col>
         </v-row>
