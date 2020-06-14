@@ -13,19 +13,19 @@ html {
   font-size: 62.5% !important;
 
   @include respond(tab-land) {
-    font-size: 56.25%;
+    font-size: 56.25% !important;
   }
 
   @include respond(tab-port) {
-    font-size: 50%;
+    font-size: 50% !important;
   }
 
   @include respond(big-desktop) {
-    font-size: 75%;
+    font-size: 75% !important;
   }
 
   @include respond(phone) {
-    font-size: 42%;
+    font-size: 42% !important;
   }
 }
 
