@@ -1,0 +1,46 @@
+@mixin clearfix {
+    &::after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+// media query manager
+
+/* $breakpoint arguments are 
+phone
+tab-port
+tab-land
+big-desktop
+*/
+
+// 1EM = 16px
+
+/* we are using em instead of pixels to let users give the freedom of setting default browser font size
+and our queries will adopt with that, else if we use pxels then it won't change with users font size.
+*/
+
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media only screen and (max-width: 37.5em) { @content}; // 600 px = 37.5em
+    }
+    @if $breakpoint == tab-port {
+        @media only screen and (max-width: 56.2em) { @content}; // 900 px = 56.2em
+    }
+    @if $breakpoint == tab-land {
+        @media only screen and (max-width: 75em) { @content}; // 1200 px = 75em
+    }
+    @if $breakpoint == big-desktop {
+        @media only screen and (min-width: 112.5em) { @content}; // 1800 px = 112em
+    }
+}

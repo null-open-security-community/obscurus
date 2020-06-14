@@ -44,14 +44,17 @@
       </v-container>
     </v-content>
 
-    <v-footer :fixed="fixed" app>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer>
+      <!-- <span>&copy; {{ new Date().getFullYear() }}</span> -->
+      <Footer />
   </v-app>
 </template>
 
 <script>
+import Footer from "../components/footer"
 export default {
+  components:{
+    Footer
+  },
   data() {
     return {
       clipped: false,
