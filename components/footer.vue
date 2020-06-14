@@ -12,19 +12,19 @@
           <div class="footer__navigation">
             <ul class="footer__list">
               <li class="footer__item">
-                <a href="#" class="footer__link">Company</a>
+                <nuxt-link to="#" class="footer__link">Company</nuxt-link>
               </li>
               <li class="footer__item">
-                <a href="#" class="footer__link">Contact us</a>
+                <nuxt-link to="#" class="footer__link">Contact us</nuxt-link>
               </li>
               <li class="footer__item">
-                <a href="#" class="footer__link">Careers</a>
+                <nuxt-link to="#" class="footer__link">Careers</nuxt-link>
               </li>
               <li class="footer__item">
-                <a href="#" class="footer__link">Privacy policy</a>
+                <nuxt-link to="#" class="footer__link">Privacy policy</nuxt-link>
               </li>
               <li class="footer__item">
-                <a href="#" class="footer__link">Terms</a>
+                <nuxt-link to="#" class="footer__link">Terms</nuxt-link>
               </li>
             </ul>
           </div>
@@ -32,7 +32,8 @@
         <div class="col-1-of-2">
           <p class="footer__copyright">
             null - The Open Security Community &copy; {{ new Date().getFullYear() }}
-
+            <br/> 
+            null is India's largest open security community. Registered as a non-profit society in 2010.
           </p>
         </div>
       </div>
