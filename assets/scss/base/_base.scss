@@ -1,0 +1,39 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+  // this defines what 1 rem is equals to
+  font-size: 62.5% !important;
+
+  @include respond(tab-land) {
+    font-size: 56.25%;
+  }
+
+  @include respond(tab-port) {
+    font-size: 50%;
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%;
+  }
+
+  @include respond(phone) {
+    font-size: 42%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+}
+
+::selection{
+  color: $color-white;
+  background-color: $color-primary;
+}
