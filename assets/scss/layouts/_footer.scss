@@ -26,27 +26,28 @@
         border-top: 1px solid $color-gray-light-2;
         padding-top: 2rem;
         display: inline-block;
-
+        width: 75%;
+        
         @include respond(tab-port){
             width: 100%;
             text-align: center;
         }
     }
-
+    
     &__list{
         list-style: none;
     }
-
+    
     &__item{
         display: inline-block;
-
+        
         &:not(:last-child){
             margin-right: 1.5rem;
         }
     }
-
+    
     &__link{
-
+        
         &:link,
         &:visited{
             color: $color-gray-light-1;
@@ -57,7 +58,7 @@
             transition: all .3s;
             backface-visibility: hidden;
         }
-
+        
         &:hover,
         &:active{
             color: $color-primary;
@@ -66,10 +67,12 @@
             // zoom: 125%;
             border-bottom: 1px solid $color-primary;
         }
-
+        
     }
-
+    
     &__copyright{
+        width: 75%;
+        text-align: center;
         border-top: 1px solid $color-gray-light-2;
         padding-top: 2rem;
         width: 80%;
@@ -78,6 +81,7 @@
         @include respond(tab-port){
             width: 100%;
             float: none;
+            text-align: center;
         }
     }
 }
