@@ -9,7 +9,7 @@
       </picture>
     </div>
     <v-row justify="center">
-      <v-col cols="6">
+      <v-col cols="12" xs="3" sm="9" md="6" lg="6" xl="6" class="mb-sm-6">
         <v-row justify="center">
           <div class="footer__navigation">
             <ul class="footer__list">
@@ -32,7 +32,7 @@
           </div>
         </v-row>
       </v-col>
-      <v-col cols="6">
+      <v-col cols="12" xs="3" sm="9" md="6" lg="6" xl="6">
         <v-row justify="center">
           <p class="footer__copyright">
             null - The Open Security Community &copy; {{ new Date().getFullYear() }}
