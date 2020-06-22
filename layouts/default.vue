@@ -1,5 +1,6 @@
 <template>
   <v-app dark>
+    <Navbar />
     <v-content>
       <v-container>
         <nuxt />
@@ -12,10 +13,12 @@
 </template>
 
 <script>
-import Footer from "../components/footer"
+import Footer from "../components/footer";
+import Navbar from '../components/navbar';
 export default {
   components:{
-    Footer
+    Footer,
+    Navbar
   },
   data() {
     return {
