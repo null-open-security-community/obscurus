@@ -5,32 +5,32 @@
       <ul class="k-nav__menu d-flex flex-row justify-lg-space-between">
         <li
           :style="link.styleItem ? link.styleItem : ''"
-          v-for="link in links"
-          :key="link.name"
+          v-for="(link, index) in links"
+          :key="index"
           class="k-nav__items"
           :class="link.class ? link.class : ''"
         >
           <nuxt-link
             :to="link.path"
-            class="k-nav__link d-flex align-center px-6 py-4"
+            class="k-nav__link d-flex align-center px-4 py-4"
             :class="link.class ? link.class : ''"
           >
-            <v-icon class="mr-2" color="white" dark>mdi-{{ link.icon }}</v-icon>
+            <v-icon class="mr-2" color="black" dark>mdi-{{ link.icon }}</v-icon>
             {{ link.name }}
           </nuxt-link>
           <ul class="k-nav__menu--sub" v-if="link.submenu">
-            <li class="k-nav__item--sub" v-for="sub in link.submenu" :key="sub">
-              <nuxt-link class="k-nav__link--sub d-flex align-center px-6 py-4" :to="sub.path" >
-                <v-icon class="mr-2" color="white" dark>mdi-{{ sub.icon }}</v-icon>
+            <li class="k-nav__item--sub" v-for="(sub, index) in link.submenu" :key="index">
+              <nuxt-link class="k-nav__link--sub d-flex align-center px-4 py-4" :to="sub.path">
+                <v-icon class="mr-2" color="black" dark>mdi-{{ sub.icon }}</v-icon>
                 {{ sub.name }}
               </nuxt-link>
             </li>
           </ul>
         </li>
-
-        <li style="display: flex; align-items: center; cursor: pointer">
+        <!-- TODO implement dark mode toggle -->
+        <!-- <li style="display: flex; align-items: center; cursor: pointer">
             <v-icon color="white" dark class="px-4">mdi-invert-colors</v-icon>
-        </li>          
+        </li>-->
       </ul>
     </nav>
   </v-layout>
@@ -42,73 +42,98 @@ export default Vue.extend({
   name: "Navbar",
   data() {
     return {
-        methods: {
-            invert(){
-                // TODO implement dark mode toggle
-            }
-        },
+      methods: {
+        invert() {
+          // TODO implement dark mode toggle
+        }
+      },
       links: [
         {
           name: "Upcoming events",
           path: "/events",
           icon: "calendar-month",
-          class: "",
+          class: ""
         },
-        { 
-            name: "Archive", 
-            path: "",
-            icon: "archive",
-            class: "k-nav__items--archive",
-            styleItem: {
-              position: "relative"
+        {
+          name: "Archive",
+          path: "",
+          icon: "archive",
+          class: "k-nav__items--archive",
+          styleItem: {
+            position: "relative"
+          },
+          submenu: [
+            {
+              name: "events",
+              path: "/events",
+              icon: "calendar-refresh"
             },
-            submenu: [
-            { 
-                name: "events", 
-                path: "/events", 
-                icon: "calendar-refresh" },
-            { 
-                name: "sessions", 
-                path: "/sessions",
-                icon: "iframe" 
-            },
+            {
+              name: "sessions",
+              path: "/sessions",
+              icon: "iframe"
+            }
           ]
         },
-        { name: "Chapter", path: "" },
-        { name: "Engage", path: "" },
-        { name: "Social", path: "" },
-        { name: "Blog", path: "",
-                    styleItem: {
-              position: "relative"
-            },
-            submenu: [
-            { 
-                name: "events", 
-                path: "/events", 
-                icon: "calendar-refresh" },
-            { 
-                name: "sessions", 
-                path: "/sessions",
-                icon: "" 
-            },
-          ]
- },
-        { name: "login", path: "", class: "ml-4" },
-        { name: "about", path: "" },
-        { name: "support", path: "" }
+        {
+          name: "Chapter",
+          path: "",
+          icon: "account-multiple-plus"
+        },
+
+        {
+          name: "Engage",
+          path: "",
+          icon: "account-group"
+        },
+        {
+          name: "Blog",
+          path: "",
+          icon: "rss-box",
+          // styleItem: {
+          //   position: "relative"
+          // },
+          // submenu: [
+          //   {
+          //     name: "events",
+          //     path: "/events",
+          //     icon: "calendar-refresh"
+          //   },
+          //   {
+          //     name: "sessions",
+          //     path: "/sessions",
+          //     icon: ""
+          //   }
+          // ]
+        },
+
+        {
+          name: "login",
+          path: "",
+          icon: "account",
+          class: "ml-4"
+        },
+
+        {
+          name: "about",
+          path: "",
+          icon: "book-open mdi-rotate-315"
+        }
       ]
     };
   }
 });
 </script>
 <style lang="scss">
-.sticky{
-    position: sticky;
-    background-color: #333;
-    z-index: 1;
+.sticky {
+  position: sticky;
+  top: 0;
+  background-color: $color-secondary;
+  z-index: 1;
+  box-shadow: 0px 2px 5px black;
 }
 .brand {
-  color: white !important;
+  color: black !important;
   text-decoration: none;
   font-size: 2.5rem;
   font-weight: 400;
@@ -131,25 +156,29 @@ export default Vue.extend({
     // right: 0; width becomes 100% of parent li
     z-index: 9;
     text-align: left;
-    background-color: transparentize($color: $color-tertiary-dark, $amount: .75);
-    box-shadow: 0px 5px 10px black;
+    background-color: transparentize(
+      $color: $color-tertiary-dark,
+      $amount: 0.75
+    );
+    box-shadow: 0px 2px 5px black;
   }
 
-  &__items--sub{
-      display: flex;
-      align-items: center;
+  &__items--sub {
+    display: flex;
+    align-items: center;
   }
 
   &__items:hover &__menu--sub {
-      display: flex;
+    display: flex;
+    background-color: $color-secondary-dark;
   }
 
   &__link,
   &__link--sub {
-    // color: white;
+    color: black !important;
     text-decoration: none;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in;
 
     &:hover,
     &:active {
@@ -158,8 +187,8 @@ export default Vue.extend({
     }
   }
 
-  &__link--sub{
-      color: white !important;
+  &__link--sub {
+    color: white !important;
   }
 }
 </style>
