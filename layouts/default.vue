@@ -1,28 +1,26 @@
 <template>
   <v-app dark>
     <Navbar />
+
     <v-content>
-      <v-container>
         <nuxt />
-      </v-container>
     </v-content>
 
-      <!-- <span>&copy; {{ new Date().getFullYear() }}</span> -->
-      <Footer />
+    <!-- <span>&copy; {{ new Date().getFullYear() }}</span> -->
+    <Footer />
   </v-app>
 </template>
 
 <script>
 import Footer from "../components/footer";
-import Navbar from '../components/navbar';
+import Navbar from "../components/navbar";
 export default {
-  components:{
+  components: {
     Footer,
     Navbar
   },
   data() {
-    return {
-    };
+    return {};
   }
 };
 </script>
