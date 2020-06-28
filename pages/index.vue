@@ -42,11 +42,11 @@ export default {
 <style lang="scss">
 .bg {
   background-image: linear-gradient(
-      to right,
-      rgba(cyan, 0.9),
-      rgba(purple, 0.3)
+      360-135deg,
+      rgba(cyan, 0.7),
+      rgba(purple, 0.5)
     ),
-    url("../assets/images/background.jpg");
+    url("../assets/images/bg.jpg");
   background-size: cover;
   background-position: center;
 }
